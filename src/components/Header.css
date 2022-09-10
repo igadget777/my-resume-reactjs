@@ -1,0 +1,48 @@
+header {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  position: relative;
+  text-align: left;
+}
+
+header h1 {
+  font-size: 1.85em;
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  text-transform: uppercase;
+}
+
+header .first-name {
+  font-weight: 700;
+}
+
+header .last-name {
+  font-weight: 300;
+}
+
+header a {
+  text-decoration: underline;
+  color: #222;
+  font-size: 0.875rem;
+}
+
+header a:hover {
+  color: #398cbc;
+}
+
+header p {
+  margin: 0.5em;
+}
+
+.site-visits {
+  position: absolute;
+  right: 0;
+  top: 1.5rem;
+}
+
+.separator {
+  height: 15px;
+  display: inline-block;
+  border-left: 2px solid #777;
+  margin: -3px 10px;
+}

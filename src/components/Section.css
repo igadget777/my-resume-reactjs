@@ -1,0 +1,35 @@
+section {
+  font-size: 0.875rem;
+  padding: 0;
+  padding-bottom: 0;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+section h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.07em;
+  color: #398cbc;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+section p {
+  margin-top: 0.5em;
+  line-height: 1.25rem;
+  padding: 0;
+}
+
+section a:hover {
+  text-decoration: none;
+}
+
+section a:visited {
+  color: #1c588c;
+}
+
+ul > li {
+  padding-bottom: 0.5rem;
+  line-height: 1.25rem;
+}

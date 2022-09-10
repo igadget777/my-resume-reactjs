@@ -1,0 +1,253 @@
+[
+  {
+    "header": {
+      "firstName": "Brett",
+      "lastName": "Stephen",
+      "labels": [
+        "Cloud Engineer",
+        "Software Engineer"
+      ],
+      "image": "",
+      "email": "bstephen777@gmail.com",
+      "phone": "",
+      "website": "https://brettstephen.com",
+      "location": {
+        "address": "",
+        "postalCode": "33319",
+        "city": "Tamarac",
+        "countryCode": "US",
+        "region": "Florida"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "url": "https://linkedin.com/in/brett-stephen-5a922138"
+        }
+      ]
+    },
+    "summary": "Enthusiastic and motivated software engineer with experience and knowledge in various technologies. Has analytical, communication, problem-solving skills, and a passion for learning new technologies. Re-entering the industry after taking some time to work in the real estate field while staying engaged with technology by working on personal projects and recently acquired the AWS Solutions Architect Associate Certification.",
+    "volunteer": [
+      {
+        "organization": "Organization",
+        "position": "Volunteer",
+        "url": "https://organization.com/",
+        "startDate": "2012-01-01",
+        "endDate": "2013-01-01",
+        "summary": "Description…",
+        "highlights": [
+          "Awarded 'Volunteer of the Month'"
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "id": 0,
+        "company": "Horizon Real Estate Solutions",
+        "role": "License Real Estate Agent",
+        "location": "Sunrise Florida",
+        "url": "https://nova.edu/",
+        "startDate": "September 2019",
+        "endDate": "present",
+        "accomplishments": [
+          "Communicate with buyers, sellers, and renters to understand property needs, timeline, and budgets.",
+          "Developed positive relationships with lenders, appraisers, home inspectors, and escrow companies."
+        ]
+      },
+      {
+        "id": 1,
+        "company": "Steb Solutions Inc",
+        "role": "Technology Professional",
+        "location": "Dominica, W.I.",
+        "url": "",
+        "startDate": "January 2017",
+        "endDate": "August 2019",
+        "accomplishments": [
+          "Consulted on technology solutions to improve company efficiency, cost effectiveness, and surveillance of daily operations.",
+          "Consulted on computer hardware and software for business operations."
+        ]
+      },
+      {
+        "id": 2,
+        "company": "Quick Notes Inc",
+        "role": "Software Developer",
+        "location": "Davie, Florida",
+        "url": "https://www.qnotes.com",
+        "startDate": "February 2010",
+        "endDate": "July 2016",
+        "accomplishments": [
+          "Created PDQ Touch Notes web app which assists doctors and therapists in getting their documentation done efficiently. Coded with: JavaScript, jQuery, jQuery Mobile, HTML, CSS, & SQL.",
+          "Designed and coded a cross-browser compatible website. Coded with: PHP, HTML, & CSS.",
+          "Engaged in software support for the company's EMR Desktop Software and barcode scanner devices."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "id": 0,
+        "institution": "Nova Southeastern University",
+        "location": "Davie Florida",
+        "url": "https://nova.edu/",
+        "degree": "Computer Information Systems",
+        "studyType": "Bachelor in Science",
+        "startDate": "",
+        "endDate": "",
+        "gpa": "3.65",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      },
+      {
+        "id": 1,
+        "institution": "Dade Community College",
+        "location": "Miami Florida",
+        "url": "https://nova.edu/",
+        "degree": "Business Administration",
+        "studyType": "Associate in Arts",
+        "startDate": "",
+        "endDate": "",
+        "gpa": "",
+        "courses": [
+          "DB1101 - Basic SQL"
+        ]
+      }
+    ],
+    "certificates": [
+      {
+        "id": 0,
+        "name": "Amazon Solution Architect Associate",
+        "dateIssued": "March 2022",
+        "issuer": "Amazon Web Services",
+        "badgeHtml": "<div data-iframe-width=\"210\" data-iframe-height=\"250\" data-share-badge-id=\"a46c659b-aa34-4223-9d9c-9a65f23105bd\" data-share-badge-host=\"https://www.credly.com\"></div>",
+        "cdnUrl": "https://cdn.credly.com/assets/utilities/embed.js"
+      }
+    ],
+    "skills": [
+      {
+        "id": 0,
+        "name": "AWS Cloud",
+        "level": "",
+        "description": "IAM, EC2, S3, Databases, DNS using Route 53, VPCs, ELB, Elastic Beanstalk, EFS, Autoscaling, CloudFront, API Gateway, Lambda, CloudWatch, CloudTrail, Session Manager, SNS, and high level understanding of services such as SQS, SWF, CloudFormation, Cognito, and Kinesis.",
+        "keywords": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Tools",
+        "level": "",
+        "description": "Terraform, Docker, MySQL Workbench, Git, GitHub, NPM, Postman, VirtualBox.",
+        "keywords": []
+      },
+      {
+        "id": 2,
+        "name": "Databases",
+        "level": "",
+        "description": " MySQL, NoSQL.",
+        "keywords": []
+      },
+      {
+        "id": 3,
+        "name": "Linux",
+        "level": "",
+        "description": "Administration, scripting, and LAMP setup.",
+        "keywords": []
+      },
+      {
+        "id": 4,
+        "name": "Web",
+        "level": "",
+        "description": "JavaScript, React, SQL, NodeJs, HTML, CSS, jQuery, JSON.",
+        "keywords": []
+      },
+      {
+        "id": 5,
+        "name": "Programming",
+        "level": "",
+        "description": "Python (Basic), Java (Basic).",
+        "keywords": []
+      }
+    ],
+    "languages": [
+      {
+        "language": "English",
+        "fluency": "Native speaker"
+      }
+    ],
+    "references": [
+      {
+        "name": "Jane Doe",
+        "reference": "Reference…"
+      }
+    ],
+    "projects": [
+      {
+        "id": 0,
+        "name": "Resume Website",
+        "description": "Designed and created a React single-page resume site running it on AWS serverless infrastructure provisioned using Terraform with a CI/CD pipeline. ReactJs, HTML5, CSS, JavaScript, S3, Route53, Certificates Manager, CloudFront, API Gateway, Lambda (Python Boto3), DynamoDB, Terraform, and Github Actions for CI/CD.",
+        "keywords": [
+          "ReactJs",
+          "HTML5",
+          "CSS",
+          "JavaScript",
+          "AWS S3",
+          "Route53",
+          "Certificates Manager",
+          "CloudFront",
+          "API Gateway",
+          "Lambda (Python Boto3)",
+          "DynamoDB",
+          "Terraform",
+          "Github Actions"
+        ],
+        "startDate": "",
+        "endDate": "",
+        "url": "https://resume.brettstephen.com/",
+        "roles": [
+          "Team Lead"
+        ],
+        "entity": "Entity",
+        "type": "application"
+      },
+      {
+        "id": 1,
+        "name": "Pomodoro Timer",
+        "description": "Designed and created a React Pomodoro Timer single-page application and deployed it to Amazon S3. Used ReactJs, Amazon S3, CloudFront, ACM, Route53, and Github Actions.",
+        "keywords": [
+          "ReactJs",
+          "Amazon S3",
+          "CloudFront",
+          "ACM",
+          "Route53",
+          "Github Actions"
+        ],
+        "startDate": "",
+        "endDate": "",
+        "url": "https:pomodoro//brettstephen.com/",
+        "roles": [
+          "Team Lead"
+        ],
+        "entity": "Entity",
+        "type": "application"
+      },
+      {
+        "id": 2,
+        "name": "Isolate Virtual Network",
+        "description": "Designed a logically isolated virtual network and utilized Amazon VPC service to launch AWS resources. Created a public and private subnet, used the private subnet for a database to protect it from the internet and used the public subnet for web servers. Elastic Load Balancing was used to automatically distribute incoming application traffic across multiple targets.",
+        "keywords": [
+          "VPC",
+          "AWS"
+        ],
+        "startDate": "",
+        "endDate": "",
+        "url": "",
+        "roles": [
+          "Team Lead"
+        ],
+        "entity": "Entity",
+        "type": "application"
+      }
+    ]
+  }
+]
