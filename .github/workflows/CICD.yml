@@ -1,0 +1,117 @@
+name: Website Build, Upload && CloudFront Invalidation
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    
+env:
+  DIST_ID: "?"
+  REST_API_ID: "?"
+  AWS_S3_BUCKET: ${{secrets.AWS_S3_BUCKET}}
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  job-lint:
+    # Name the Job
+    name: Lint Code Base
+    # Set the agent to run on
+    runs-on: ubuntu-latest
+    ##################
+    # Load all steps #
+    ##################
+    steps:
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Code Base
+        uses: github/super-linter/slim@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+
+  job-infrastructure:
+    name: Make sure infrastructure is up and running
+    needs: job-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Site
+        run: |
+          echo "BuildSite"
+          sleep 3s
+      - uses: convictional/trigger-workflow-and-wait@v1.6.1
+        with:
+          owner: igadget777
+          repo: Cloud-Resume-Challenge-Infra
+          github_token: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
+          workflow_file_name: Infra-CICD.yml
+          client_payload: '{"name": "push"}'
+      - name: job-upload-site is next
+        run: |
+          echo "Upload site"
+          sleep 3s
+  job-build-upload-site:
+    name: sync website files to s3 bucket and invalidate CloudFront
+    if: github.event_name == 'push'
+    needs: job-infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Installing dependencies
+        run: npm install
+      - name: Building project
+        run: npm run build
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v3
+      - name: Set AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: "us-east-1" # optional: defaults to us-east-1
+          # SOURCE_DIR: "resume-site" # optional: defaults to entire repository
+
+      - name: Get API Gateway ID
+        env:
+          AWS_API_GATEWAY_NAME: ${{ secrets.AWS_API_GATEWAY_NAME }}
+        run: |
+          REST_API_ID=$(aws apigateway get-rest-apis --query "items[?name=='$AWS_API_GATEWAY_NAME'].id" --output text)
+          echo "REST_API_ID=$REST_API_ID" >> "$GITHUB_ENV"
+          echo "$REST_API_ID"
+      - name: Export API Gateway invoke url to a JavaScript file
+        run: |
+         echo -e const API = "'https://$REST_API_ID.execute-api.us-east-1.amazonaws.com/prod';""\nexport default API;" > ./invoke-url.js
+     
+      - name: Sync S3 Bucket        
+        run: aws s3 sync ./build/ s3://"$AWS_S3_BUCKET" --exclude ".gitignore" --exclude ".git*/*" --follow-symlinks --delete
+
+      - name: Store Cloudfront Distribution Id in env variable
+        id: step_one
+        run: |
+          DIST_ID=$(aws cloudfront list-distributions --query "DistributionList.Items[*].{id:Id,origin:Origins.Items[0].Id}[?origin=='$AWS_S3_BUCKET'].id" --output text)
+          echo "DIST_ID=$DIST_ID" >> "$GITHUB_ENV"
+        # echo "$DIST_ID"
+      
+      - name: Invalidate Cloudfront
+        id: step_two
+        run: |
+          aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/*"
