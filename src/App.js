@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React from 'react'
 import Header from './components/Header';
 import Visits from './components/Visits';
@@ -12,7 +11,6 @@ import Footer from './components/Footer';
 import Resume from './resume.json';
 import './App.css';
 
-import API from './invoke-url';
 const Certificate = React.lazy(() => import('./components/Certificate'));
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
     <div className="container">
 
       <Header header={resume.header}>
-        <Visits api={API} />
+        <Visits />
       </Header>
       <Section title="">
         <Summary summary={resume.summary} />
@@ -41,7 +39,7 @@ function App() {
         </ul>
       </Section>
       <Section title="Certifications">
-        <ul className='certss'>
+        <ul className='certs'>
           {resume.certificates.map((certificate) => (
             <Certificate key={certificate.id} {...certificate} />
           ))}
