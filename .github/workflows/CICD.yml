@@ -72,14 +72,6 @@ jobs:
     steps:
       - name: Checking out code
         uses: actions/checkout@v3
-      - name: Installing Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-      - name: Installing dependencies
-        run: npm install
-      - name: Building project
-        run: npm run build
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v3
       - name: Set AWS Credentials
@@ -100,6 +92,15 @@ jobs:
       - name: Export API Gateway invoke url to a JavaScript file
         run: |
          echo -e const API = "'https://$REST_API_ID.execute-api.us-east-1.amazonaws.com/prod';""\nexport default API;" > ./invoke-url.js
+      
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Installing dependencies
+        run: npm install
+      - name: Building project
+        run: npm run build
      
       - name: Sync S3 Bucket        
         run: aws s3 sync ./build/ s3://"$AWS_S3_BUCKET" --exclude ".gitignore" --exclude ".git*/*" --follow-symlinks --delete
