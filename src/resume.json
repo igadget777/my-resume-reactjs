@@ -158,7 +158,7 @@
         "id": 4,
         "name": "Web",
         "level": "",
-        "description": "JavaScript, React, SQL, NodeJs, HTML, CSS, jQuery, JSON.",
+        "description": "JavaScript, React, SQL, NodeJs, HTML, CSS, jQuery, PHP, JSON.",
         "keywords": []
       },
       {
@@ -184,7 +184,7 @@
     "projects": [
       {
         "id": 0,
-        "name": "Resume Website",
+        "name": "Resume Site",
         "description": "Designed and created a React single-page resume site running it on AWS serverless infrastructure provisioned using Terraform with a CI/CD pipeline. ReactJs, HTML5, CSS, JavaScript, S3, Route53, Certificates Manager, CloudFront, API Gateway, Lambda (Python Boto3), DynamoDB, Terraform, and Github Actions for CI/CD.",
         "keywords": [
           "ReactJs",
@@ -204,6 +204,7 @@
         "startDate": "",
         "endDate": "",
         "url": "https://resume.brettstephen.com/",
+        "gitRepo": "https://github.com/igadget777/my-resume-reactjs",
         "roles": [
           "Team Lead"
         ],
@@ -225,6 +226,7 @@
         "startDate": "",
         "endDate": "",
         "url": "https://pomodoro.brettstephen.com/",
+        "gitRepo": "https://github.com/igadget777/pomodoro-timer",
         "roles": [
           "Team Lead"
         ],
@@ -233,7 +235,7 @@
       },
       {
         "id": 2,
-        "name": "Isolate Virtual Network",
+        "name": "Isolated Virtual Network",
         "description": "Designed a logically isolated virtual network and utilized Amazon VPC service to launch AWS resources. Created a public and private subnet, used the private subnet for a database to protect it from the internet and used the public subnet for web servers. Elastic Load Balancing was used to automatically distribute incoming application traffic across multiple targets.",
         "keywords": [
           "VPC",
@@ -241,7 +243,8 @@
         ],
         "startDate": "",
         "endDate": "",
-        "url": "",
+        "url": "/",
+        "gitRepo": "",
         "roles": [
           "Team Lead"
         ],
