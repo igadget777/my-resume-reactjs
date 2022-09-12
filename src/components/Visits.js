@@ -6,7 +6,7 @@ const Visits = () => {
 
   useEffect(() => {    
     const url = API + '/visits';
-
+    console.log(API)
     const getVisits = async (url) => {
       const options = {
         method: 'GET',
